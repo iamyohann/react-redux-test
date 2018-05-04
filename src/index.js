@@ -16,21 +16,23 @@ import theme from './theme';
 // so vendor specific rules are added here
 injectGlobal`
   ${normalize()}
-  @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro|Source+Serif+Pro');
+  @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400|Source+Serif+Pro');
 
-  .font-sans {
+  /* .font-sans {
     font-family: 'Source Sans Pro', sans-serif;
   }
 
   .font-serif {
     font-family: 'Source Serif Pro', serif;
-  }
+  } */
 
   body {
     font-family: 'Source Sans Pro', serif;
     background: ${theme.backgroundStart};
     background: linear-gradient(295deg, ${theme.brand.light}, ${theme.brand.dark}) fixed;
     background: -webkit-linear-gradient(295deg, ${theme.brand.light}, ${theme.brand.dark}) fixed;
+    background: -moz-linear-gradient(295deg, ${theme.brand.light}, ${theme.brand.dark}) fixed;
+    background: -o-linear-gradient(295deg, ${theme.brand.light}, ${theme.brand.dark}) fixed;
     background-repeat: no-repeat;
     background-attachment: fixed;
   }

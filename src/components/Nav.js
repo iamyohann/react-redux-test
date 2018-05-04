@@ -1,12 +1,11 @@
 import React from 'react';
-import cls from 'classnames';
 import styled from 'styled-components';
 import { darken, lighten, transparentize } from 'polished';
 import { Link } from 'react-router-dom';
 
 const Nav = (props) => (
-  <div className={cls('header', props.className)}>
-    <Link className={cls('logo', 'font-serif')} to='/'>GitSearch</Link>
+  <div className={props.className}>
+    <Link className='logo' to='/'>GitSearch</Link>
     <div className="nav-right">
       <a>Trending</a>
       <a>Trending2</a>
@@ -23,6 +22,7 @@ export default styled(Nav)`
     color: ${props => props.theme.textColor};
     text-decoration: none;
     font-size: 24px;
+    font-family: 'Source Serif Pro', serif;
   }
 
   .nav-right {
