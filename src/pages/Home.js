@@ -2,14 +2,13 @@ import React from 'react';
 import styled from 'styled-components';
 import { transparentize } from 'polished';
 
-import TextBox from '../components/TextBox';
 import SearchBar from '../components/SearchBar';
 
 const Home = (props) => (
   <div className={props.className}>
-    <p className="helpText">Find a user, repo or code...</p>
+    <p className="helpText">Find a user on Github...</p>
     <SearchBar />
-    <p className="footNotes">Eg: example1, example2, example3</p>
+    <p className="footNotes">Recently searched: </p>
   </div>
 );
 

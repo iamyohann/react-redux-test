@@ -6,5 +6,7 @@ const TextBox = (props) => (
 );
 
 export default styled(TextBox)`
-
+  &:focus {
+        outline: none;
+  }
 `;

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { darken, lighten, transparentize } from 'polished';
+import { transparentize } from 'polished';
 import { Link } from 'react-router-dom';
 
 const Nav = (props) => (

@@ -6,8 +6,7 @@ const Button = ({ children, ...otherProps }) => (
 );
 
 export default styled(Button)`
-  color: red;
-  display: inline-block;
-  border: solid 10px red;
-  margin: 0 auto;
+  &:focus {
+        outline: none;
+  }
 `;
