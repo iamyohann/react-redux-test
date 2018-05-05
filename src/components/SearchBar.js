@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { lighten, transitions, darken, adjustHue } from 'polished';
+import { lighten, transitions } from 'polished';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';

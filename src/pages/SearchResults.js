@@ -5,6 +5,7 @@ import { parse } from 'query-string';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 import { darken } from 'polished';
+import { stringify } from 'query-string';
 
 import { search } from '../redux/search';
 import { ErrorAlert } from '../components/Alert';
@@ -24,11 +25,20 @@ const mapDispatchToProps = {
 class SearchResults extends React.Component {
   static propTypes = {
     location: PropTypes.object.isRequired,
+    history: PropTypes.object.isRequired,
   }
 
-  componentDidMount() {
+  componentWillMount() {
     const { search: searchQuery = null } = this.props.location;
     this.props.doSearch(search ? parse(searchQuery).query : null);
+  }
+
+  componentWillUnmount() {
+    // TODO: clear
+  }
+
+  viewRepository = (user) => {
+    this.props.history.push(`/repository?${stringify({ user, })}`)
   }
 
   render() {
@@ -44,16 +54,18 @@ class SearchResults extends React.Component {
           <DataTable className="results">
             <thead>
               <tr>
-                {['User ID', 'GitHub profile link', 'Actions'].map(col => <th>{col}</th>)}
+                {['User ID', 'GitHub profile link', 'Actions'].map((col, i) => <th key={i}>{col}</th>)}
               </tr>
             </thead>
-            {search.results.items.map(item => (
-              <tr>
-                <td><img src={item.avatar_url} width="15px" height="15px" /> {item.login}</td>
-                <td><a href={item.html_url} target="_blank">Click here</a></td>
-                <td><Button>View</Button></td>
-              </tr>
-            ))}
+            <tbody>
+              {search.results.items.map(item => (
+                <tr key={item.id}>
+                  <td key='avatar'><img alt={`Avatar for ${item.id}}`} src={item.avatar_url} width='15px' height='15px' /> {item.login}</td>
+                  <td key='git_url'><a href={item.html_url} target='_blank'>Click here</a></td>
+                  <td key='detail'><Button onClick={() => this.viewRepository(item.login)}>View</Button></td>
+                </tr>
+              ))}
+            </tbody>
           </DataTable>
         </React.Fragment>
       );

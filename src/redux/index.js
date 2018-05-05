@@ -1,5 +1,6 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import search from './search';
+import repository from './repository';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import storage from 'redux-persist/lib/storage';
 import { persistStore, persistReducer } from 'redux-persist';
@@ -22,6 +23,7 @@ const enhancer = composeWithDevTools(
 
 const rootReducer = combineReducers({
   search,
+  repository,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

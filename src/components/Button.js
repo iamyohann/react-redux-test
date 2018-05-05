@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { lighten, transitions, darken, adjustHue } from 'polished';
+import { lighten, darken, adjustHue } from 'polished';
 
 const Button = ({ children, ...otherProps }) => (
   <button {...otherProps}>{children}</button>
