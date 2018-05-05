@@ -9,8 +9,6 @@ const DataTable = ({ children, ...otherProps }) => (
   </table>
 );
 
-
-
 export default styled(DataTable)`
   & {
     margin: 0 auto;

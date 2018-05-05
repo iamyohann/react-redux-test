@@ -86,16 +86,7 @@ export default styled(SearchBarContainer)`
     .searchButton {
       margin-left: 1px;
       flex-grow: 1;
-      border: none;
-      color: ${props => darken(0.1, props.theme.textColor)};
       border-radius: 0px 4px 4px 0px;
-      background: -webkit-gradient(linear, left top, right top, from(${props => lighten(0.3, adjustHue(50, props.theme.brand.light))}), to(${props => lighten(0.1, adjustHue(75, props.theme.brand.light))}));
-      background: -moz-linear-gradient(linear, left top, right top, from(${props => lighten(0.3, adjustHue(50, props.theme.brand.light))}), to(${props => lighten(0.1, adjustHue(75, props.theme.brand.light))}));
-      background: -o-linear-gradient(linear, left top, right top, from(${props => lighten(0.3, adjustHue(50, props.theme.brand.light))}), to(${props => lighten(0.1, adjustHue(75, props.theme.brand.light))}));
-
-      &:hover {
-        cursor: pointer;
-      }
     }
 
     .searchText {

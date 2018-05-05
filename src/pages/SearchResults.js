@@ -9,6 +9,7 @@ import { darken } from 'polished';
 import { search } from '../redux/search';
 import { ErrorAlert } from '../components/Alert';
 import DataTable from '../components/DataTable';
+import Button from '../components/Button';
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -43,16 +44,16 @@ class SearchResults extends React.Component {
           <DataTable className="results">
             <thead>
               <tr>
-                  <th>Foo</th>
-                  <th>Bar</th>
+                {['User ID', 'GitHub profile link', 'Actions'].map(col => <th>{col}</th>)}
               </tr>
             </thead>
-            <tbody>
+            {search.results.items.map(item => (
               <tr>
-                <td>1</td>
-                <td>2</td>
+                <td><img src={item.avatar_url} width="15px" height="15px" /> {item.login}</td>
+                <td><a href={item.html_url} target="_blank">Click here</a></td>
+                <td><Button>View</Button></td>
               </tr>
-            </tbody>
+            ))}
           </DataTable>
         </React.Fragment>
       );
@@ -73,6 +74,9 @@ const StyledSearchResults = styled(SearchResults)`
       color: ${props => darken(0.1, props.theme.textColor)}
     }
     .results {
+    }
+    a {
+      color: ${props => props.theme.textColor};
     }
   }
 `
