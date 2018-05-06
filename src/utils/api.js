@@ -6,6 +6,8 @@ const handleSagaAPICall = function* _handleSagaAPICall(fetchFn, successFn, failF
 
     if (results.statusText === "OK") {
       yield put(successFn(results.data))
+    } else {
+      throw new Error("Unknown error has occurred");
     }
   } catch (e) {
     if (e.response && e.response.data) {
