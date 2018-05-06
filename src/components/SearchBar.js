@@ -4,7 +4,7 @@ import { lighten, transitions } from 'polished';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
-import { stringify } from 'query-string';
+import qs from 'qs';
 
 import TextBox from './TextBox';
 import Button from './Button';
@@ -38,7 +38,7 @@ class SearchBar extends React.Component {
 
     if (term) {
       // TODO: Store this in history of search terms instead.
-      this.props.history.push(`/results?${stringify({ query: term })}`)
+      this.props.history.push(`/results?${qs.stringify({ query: term })}`)
 
     } else {
       this.setState({

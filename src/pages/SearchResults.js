@@ -1,11 +1,10 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { parse } from 'query-string';
+import qs from 'qs';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 import { darken } from 'polished';
-import { stringify } from 'query-string';
 
 import { search } from '../redux/search';
 import { ErrorAlert } from '../components/Alert';
@@ -30,7 +29,7 @@ class SearchResults extends React.Component {
 
   componentWillMount() {
     const { search: searchQuery = null } = this.props.location;
-    this.props.doSearch(search ? parse(searchQuery).query : null);
+    this.props.doSearch(search ? qs.parse(searchQuery, { ignoreQueryPrefix: true }).query : null);
   }
 
   componentWillUnmount() {
@@ -38,7 +37,7 @@ class SearchResults extends React.Component {
   }
 
   viewRepository = (user) => {
-    this.props.history.push(`/repository?${stringify({ user, })}`)
+    this.props.history.push(`/repository?${qs.stringify({ user, })}`)
   }
 
   render() {
@@ -50,7 +49,7 @@ class SearchResults extends React.Component {
       const { search: searchQuery = null } = this.props.location;
       searchResultContent = (
         <React.Fragment>
-          <h4 className="title">Showing {search.results.items.length} of {search.results.total_count} results for '{parse(searchQuery).query}'</h4>
+          <h4 className="title">Showing {search.results.items.length} of {search.results.total_count} results for '{qs.parse(searchQuery, { ignoreQueryPrefix: true }).query}'</h4>
           <DataTable className="results">
             <thead>
               <tr>

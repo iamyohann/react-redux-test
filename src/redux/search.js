@@ -27,11 +27,11 @@ const reducer = handleActions(
         payload
       }
     ) {
-      return { ...state, error: payload.message, };
+      return { ...state, error: payload.message, results: null };
     }
   },
   defaultState
 );
 
 export default reducer;
-export { reducer, search, searchSuccess, searchFailure };
+export { reducer, search, searchSuccess, searchFailure, defaultState };

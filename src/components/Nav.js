@@ -7,9 +7,7 @@ const Nav = (props) => (
   <div className={props.className}>
     <Link className='logo' to='/'>GitSearch</Link>
     <div className="nav-right">
-      <a>Trending</a>
-      <a>Trending2</a>
-      <a>Trending3</a>
+      <a>D3 demo</a>
     </div>
   </div>
 );

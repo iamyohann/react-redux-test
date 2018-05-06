@@ -1,7 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { parse } from 'query-string';
+import qs from 'qs';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 import { darken } from 'polished';
@@ -27,7 +27,7 @@ class Repository extends React.Component {
 
   componentWillMount() {
     const { search: searchQuery = null } = this.props.location;
-    this.props.fetchRepositories(searchQuery ? parse(searchQuery).user : null);
+    this.props.fetchRepositories(searchQuery ? qs.parse(searchQuery, { ignoreQueryPrefix: true }).user : null);
   }
 
   componentWillUnmount() {
@@ -43,7 +43,7 @@ class Repository extends React.Component {
       const { search: searchQuery = null } = this.props.location;
       repositoryResultContent = (
         <React.Fragment>
-          <h4 className="title">Showing {repository.results.length} repositories for user '{parse(searchQuery).user}'</h4>
+          <h4 className="title">Showing {repository.results.length} repositories for user '{qs.parse(searchQuery, { ignoreQueryPrefix: true }).user}'</h4>
           <DataTable className="results">
             <thead>
               <tr>
