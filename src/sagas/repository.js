@@ -22,4 +22,4 @@ const repositoryFlow = function* _repositoryFlow() {
   yield takeEvery(repository.toString(), repositoryRequest);
 }
 
-export { repositoryFlow };
+export { repositoryFlow, repositoryRequest };

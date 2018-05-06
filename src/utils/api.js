@@ -4,10 +4,10 @@ const handleSagaAPICall = function* _handleSagaAPICall(fetchFn, successFn, failF
     // do axios call
     const results = yield call(fetchFn, endpoint, ...args);
 
-    if (results.statusText === "OK") {
+    if (results.statusText === 'OK') {
       yield put(successFn(results.data))
     } else {
-      throw new Error("Unknown error has occurred");
+      throw new Error('Unknown error has occurred');
     }
   } catch (e) {
     if (e.response && e.response.data) {
