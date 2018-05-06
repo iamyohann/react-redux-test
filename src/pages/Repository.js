@@ -9,7 +9,6 @@ import { darken } from 'polished';
 import { repository } from '../redux/repository';
 import { ErrorAlert } from '../components/Alert';
 import DataTable from '../components/DataTable';
-import Button from '../components/Button';
 
 const mapStateToProps = (state, ownProps) => {
   return {

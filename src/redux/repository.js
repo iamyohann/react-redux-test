@@ -27,11 +27,11 @@ const reducer = handleActions(
         payload
       }
     ) {
-      return { ...state, error: payload.message, };
+      return { ...state, error: payload.message, results: null };
     }
   },
   defaultState
 );
 
 export default reducer;
-export { reducer, repository, repositorySuccess, repositoryFailure };
+export { reducer, repository, repositorySuccess, repositoryFailure, defaultState };

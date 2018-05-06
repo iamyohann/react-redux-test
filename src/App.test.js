@@ -1,9 +1,20 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import renderer from 'react-test-renderer';
+import 'jest-styled-components';
+import theme from './theme';
+import { ThemeProvider } from 'styled-components';
 import App from './App';
+jest.mock('./redux/index');
+import * as reduxIndex from './redux/index';
+describe('App', () => {
+  it('renders without crashing', () => {
+    const tree = renderer
+      .create(
+        <ThemeProvider theme={theme}>
+          <App />
+        </ThemeProvider>
+      )
+      .toJSON();
+  });
+})
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
-  ReactDOM.unmountComponentAtNode(div);
-});
