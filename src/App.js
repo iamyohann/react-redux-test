@@ -9,6 +9,7 @@ import SearchResultsPage from './pages/SearchResults';
 import RepositoryPage from './pages/Repository';
 import NotFound from './pages/404';
 import { store } from './redux/index';
+import Visualization from './pages/Visualization';
 
 const App = ({ className }) => (
   <Provider store={store}>
@@ -22,6 +23,7 @@ const App = ({ className }) => (
                   <Route exact path='/' component={HomePage} />
                   <Route path='/results' component={SearchResultsPage} />
                   <Route path='/repository' component={RepositoryPage} />
+                  <Route path='/visualization' component={Visualization} />
 
                   {/* 404 route below */}
                   <Route component={NotFound} />
