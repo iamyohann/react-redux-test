@@ -7,7 +7,7 @@ const Nav = (props) => (
   <div className={props.className}>
     <Link className='logo' to='/'>GitSearch</Link>
     <div className="nav-right">
-      <a>D3 demo (coming soon)</a>
+      <Link className='logo' to='/visualization'>D3 Demo</Link>
     </div>
   </div>
 );
@@ -28,7 +28,9 @@ export default styled(Nav)`
 
     & a {
       padding: 0px 10px;
-      color: ${props => transparentize(0.2, props.theme.textColor)}
+      color: ${props => transparentize(0.2, props.theme.textColor)};
+      font-family: 'Source Sans Pro';
+      font-size: 18px;
     }
   }
 `;
